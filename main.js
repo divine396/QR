@@ -1,16 +1,10 @@
-let imgBox = document.getElementById("imgBox");
-let qrImage = document.getElementById("qrImage");
-let qrText = document.getElementById("qrText");
+var index = 0;
 
-function generateQR() {
-  if (qrText.value.length > 0) {
-    qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value;
-    imgBox.classList.add("show-img")
-  }else{
-    qrText.classList.add('error');
-    setTimeout(()=>{
-      qrText.classList.remove('error');
-    },1000)
-  }
+function changeColors(){
+    var colors = ["red","blue","orange","yellow","green","purple","black","white","pink","gold","silver"];
 
+    document.getElementsByTagName("body")[0].style.background = colors[index++];
+
+    if(index > colors.length - 1) 
+        index = 0;
 }
